@@ -7,13 +7,13 @@ import { getModelForClass, modelOptions, prop } from "@typegoose/typegoose"
 })
 export class User {
     @prop({ required: true, minlength: 6, maxlength: 20, unique: true })
-    userName: string
+    userName!: string
 
     @prop({ required: true, minlength: 10, maxlength: 50, unique: true })
-    email: string
+    email!: string
 
     @prop({ required: true, minlength: 6 })
-    password: string
+    password!: string
 }
 
 export default getModelForClass(User)
