@@ -5,10 +5,16 @@ import { connectToDb } from './utis/connectDB';
 dotenv.config()
 
 const port: number | string = process.env.PORT || 8080;
-const app: Express = express()
 
-connectToDb()
+const bootstrap = async () => {
 
-app.listen(port, () => {
-    console.log(`-------------Web is listening on port ${port}------------`)
-})
+    const app: Express = express()
+
+    connectToDb()
+
+    app.listen(port, () => {
+        console.log(`-------------Web is listening on port ${port}------------`)
+    })
+}
+
+bootstrap()
