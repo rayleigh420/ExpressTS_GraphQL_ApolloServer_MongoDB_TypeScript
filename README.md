@@ -1,4 +1,4 @@
-# Config ExpressJS Server connect to MongoDB with TypeScript
+# Config ExpressJS Server connect to MongoDB and GraphQL with TypeScript and Apollo Server
 
 Config ExpressTS, use TypeScript language. Connect to MongoDB and use GraphQL with Apollo Server
 
