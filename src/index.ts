@@ -19,11 +19,13 @@ const port: number | string = process.env.PORT || 8080;
     // Init Express
     const app: Express = express()
 
+    // Init Apollo Server
     const server = new ApolloServer({
         schema: await buildSchema({
             resolvers: [UserResolver]
         }),
         plugins: [
+            // Playground GraphQL
             ApolloServerPluginLandingPageGraphQLPlayground()
         ]
 
