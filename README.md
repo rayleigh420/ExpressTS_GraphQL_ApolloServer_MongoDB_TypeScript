@@ -1,31 +1,21 @@
 # Config ExpressJS Server connect to MongoDB with TypeScript
 
-Build server NodeJS with ExpressJS framework, I use TypeScript language for this project. The server will connect to MongoDB. I will use @typegoose/typegoose to write schema with typescript
+Config ExpressTS, use TypeScript language. Connect to MongoDB and use GraphQL with Apollo Server
 
 ## Run Server
 
 1. Dowload project from git and open folder
 
 ```bash
-cd ExpressTS_Server_Config
+cd ExpressTS_GraphQL_ApolloServer_MongoDB_TypeScript
 ```
 
 2. Install dependencies
 
-- You can install all dependencies like that:
-
 ```bash
 npm i
 ```
-- Or you can install the latest package with this:
-
-```bash
-npm install express dotenv mongoose
-```
-
-```bash
-npm install --save-dev typescript ts-node-dev @types/node @types/express nodemon rimraf concurrently @babel/core @babel/node @babel/preset-env @typegoose/typegoose
-```
+- Or you can install the latest package but i will share in below
 
 3. Run server
 ```bash
@@ -76,14 +66,24 @@ npm run dev
 }
 ```
 
-> With this server I don't use option module. When we don't use this option. tsc will compile to `.js` file with `import` syntax. But NodeJS can't run `.js` file with `import` syntax. Instead of that, we use babel-node to run that file.
+## Package Install
 
-2. `npm run dev`
+- In this moment i make this project. The most recent version of `type-graphql` only works with `graphql` verison `^15.5.0`. Almost all newest versions of `@apollo/server`and graphql-related libraries, on the other hand, only support `graphql` version `>=16`. Fortunately, a newer version of `type-graphq` (version `2.0.0`), which is still in beta, is available under the `next` tag version in `npm`. To install it, first uninstall `type-graphql` and then reinstall it specifying the next tag:
 
-```json
-"dev": "ts-node-dev --respawn --transpile-only ./src/index.ts",
+```bash
+npm uninstall type-graphql
+npm install type-graphql@next
 ```
 
-> During coding and develop, maybe we don't need to compile and run `.js` file. So we can use `ts-node-dev` to run `.ts` file directly without compile.
+## How to know what version fix together
+
+1. type-graphql
+
+> First you can check [release of type-graphql](https://github.com/MichalLytek/type-graphql/releases) and check latest version
+
+> In my case, i check [this](https://github.com/MichalLytek/type-graphql/releases/tag/v1.2.0-rc.1) 
+>> update graphql-js peer dependency to ^15.5.0
+
+
 
 
