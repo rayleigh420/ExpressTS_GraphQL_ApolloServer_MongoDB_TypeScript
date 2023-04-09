@@ -21,4 +21,4 @@ export class User {
     password!: string
 }
 
-export default getModelForClass(User)
+export const userModel = getModelForClass<typeof User>(User)

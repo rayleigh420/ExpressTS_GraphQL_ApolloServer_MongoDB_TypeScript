@@ -1,14 +1,15 @@
 import express, { Express } from 'express'
+import 'reflect-metadata'
 import cors from 'cors'
 import dotenv from 'dotenv'
-import { connectToDb } from './utis/connectDB';
 import { ApolloServer } from '@apollo/server';
 import { expressMiddleware } from '@apollo/server/express4'
 import { buildSchema } from 'type-graphql';
 import { ApolloServerPluginLandingPageGraphQLPlayground } from '@apollo/server-plugin-landing-page-graphql-playground'
-
-import userSchema from './schemas/user.schema';
 import { json } from 'body-parser';
+
+import UserResolver from './resolvers/user.resolver';
+import { connectToDb } from './utis/connectDB';
 
 dotenv.config()
 
@@ -20,7 +21,7 @@ const port: number | string = process.env.PORT || 8080;
 
     const server = new ApolloServer({
         schema: await buildSchema({
-            resolvers: [userSchema]
+            resolvers: [UserResolver]
         }),
         plugins: [
             ApolloServerPluginLandingPageGraphQLPlayground()

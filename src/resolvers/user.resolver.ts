@@ -1,4 +1,4 @@
-import { User } from "src/schemas/user.schema";
+import { User } from '../schemas/user.schema'
 import { Resolver } from "type-graphql";
 import { Query, Mutation } from 'type-graphql/dist/decorators'
 
